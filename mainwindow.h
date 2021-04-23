@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <cameraconnection.h>
+#include <QThread>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,6 +16,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    CameraConnection *camera;
+    QThread *thread_cam;
+
+
+signals:
+    void getFrame();
+
+public slots:
+    void Paint(cv::Mat);
 
 private:
     Ui::MainWindow *ui;
