@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <cameraconnection.h>
 #include <QThread>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +22,10 @@ public:
     ~MainWindow();
 
     CameraConnection *camera;
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
+    QSqlQuery query;
     QThread *thread_cam;
+    bool startCamera = false;
 
 
 signals:
@@ -26,6 +33,9 @@ signals:
 
 public slots:
     void Paint(cv::Mat);
+
+private slots:
+    void on_StartCamera_clicked();
 
 private:
     Ui::MainWindow *ui;

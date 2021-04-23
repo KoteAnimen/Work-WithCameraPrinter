@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "QDebug"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,7 +14,26 @@ MainWindow::MainWindow(QWidget *parent)
     connect(camera, &CameraConnection::FrameReady, this, &MainWindow::Paint);
     connect(this, &MainWindow::getFrame, camera, &CameraConnection::Grab);
     connect(thread_cam, &QThread::started, camera, &CameraConnection::Grab);
-    thread_cam->start();
+
+
+    //подключаемся к БД
+    db.setDatabaseName("Driver={SQL Server};Server=DESKTOP-CR5MEE4\\SQLEXPRESS;Trusted_Connection=Yes;Database=Dairy;");
+    db.setUserName("DESKTOP-CR5MEE4\\Kote_Animen");
+    db.setPassword("");
+    if(!db.open())
+    {
+        QMessageBox::StandardButton ErrorOpenFile;
+        ErrorOpenFile = QMessageBox::critical(this,
+                                              QString::fromUtf8("Ошибка"),
+                                              QString::fromUtf8("<font size='16'>Отсутствует подключение к базе данных!</font>"));
+    }
+    query.prepare("SELECT nomenclature FROM dbo.nomenclature");
+    query.exec();
+    while(query.next())
+    {
+        ui->typeProduct->addItem(query.value(0).toString(), 0);
+    }
+
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +48,10 @@ void MainWindow::Paint(cv::Mat src)
     ui->cameraScreen->update();
     emit getFrame();
     delete CamImg;
-
 }
 
+
+void MainWindow::on_StartCamera_clicked()
+{
+    thread_cam->start();
+}
