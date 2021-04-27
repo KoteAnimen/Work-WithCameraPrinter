@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+#include <QSettings>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,6 +34,7 @@ public:
     QString fromFileInfo = "";
     QString path;
 
+
     void LoadFileDataMatrix(QString);
 
 
@@ -45,7 +47,9 @@ public slots:
     void OpenDataMatrixDirectory();
 
 private slots:
-    void on_StartCamera_clicked();    
+    void on_StartCamera_clicked();
+
+    void on_typeProduct_activated(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

@@ -104,6 +104,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QLabel" name="freeStickers">
+          <property name="text">
+           <string>Количество оставшихся этикеток:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="Print">
           <property name="text">
            <string>Начать печать</string>

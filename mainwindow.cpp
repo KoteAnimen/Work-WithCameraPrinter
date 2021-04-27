@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(aboutUs, &QAction::triggered, this, &MainWindow::AboutUsShow);
     connect(openDataMatrixDirectory, &QAction::triggered, this, &MainWindow::OpenDataMatrixDirectory);
     connect(exit, &QAction::triggered, qApp, &QApplication::quit);
+    QSettings settings("settings.ini", QSettings::IniFormat);
+    path = settings.value("path").toString();
 
     //подключаемся к БД
     db.setDatabaseName("Driver={SQL Server};Server=DESKTOP-CR5MEE4\\SQLEXPRESS;Trusted_Connection=Yes;Database=Dairy;");
@@ -46,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     query.exec();
     while(query.next())
     {
-        ui->typeProduct->addItem(query.value(0).toString(), 0);
+        ui->typeProduct->addItem(query.value("nomenclature").toString().trimmed());
     }
 
 }
@@ -90,7 +92,7 @@ void MainWindow::LoadFileDataMatrix(QString nameDataMatrix)
         QMessageBox::StandardButton ErrorOpenFile;
         ErrorOpenFile = QMessageBox::critical(this,
                                               QString::fromUtf8("Ошибка"),
-                                              QString::fromUtf8("<font size='14'>Файл с DataMatrix не найден. Укажите директорию</font>"));    }
+                                              QString::fromUtf8("<font size='14'>Файл с DataMatrix не найден. Возможно файла не существует или укажите другую директорию</font>"));    }
 }
 
 void MainWindow::AboutUsShow()
@@ -104,7 +106,37 @@ void MainWindow::AboutUsShow()
 void MainWindow::OpenDataMatrixDirectory()
 {
     path = QFileDialog::getExistingDirectory(this, QString::fromUtf8("Открыть директорию"),QDir::currentPath(), QFileDialog::ShowDirsOnly);
-    qDebug() << path;
+    QSettings settings("settings.ini", QSettings::IniFormat);
+    settings.setValue("path", path);
 }
 
+void MainWindow::on_typeProduct_activated(const QString &arg1)
+{
+    if(path != "")
+    {
+       LoadFileDataMatrix(arg1);
+       QString code;
+       int countCode;
+       query.prepare("SELECT code FROM dbo.nomenclature WHERE nomenclature = '" + ui->typeProduct->currentText() + QString("'") );
+       query.exec();
+       while(query.next())
+       {
+           code = query.value(0).toString();
+       }
+       query.prepare("SELECT COUNT(nomenclature_code) FROM dbo.products WHERE nomenclature_code = '" + code +QString("'"));
+       query.exec();
+       while(query.next())
+       {
+           countCode += query.value(0).toInt();
+       }
+       ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(5000 - countCode));
 
+    }
+    else
+    {
+        QMessageBox::StandardButton ErrorOpenFile;
+        ErrorOpenFile = QMessageBox::warning(this,
+                                              QString::fromUtf8("Не указана директория"),
+                                              QString::fromUtf8("<font size='14'>Укажите директорию c DataMatrix</font>"));
+    }
+}
