@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, &MainWindow::getFrame, camera, &CameraConnection::Grab);
     connect(thread_cam, &QThread::started, camera, &CameraConnection::Grab);
 
+    //связываем действия с уже созданными в дизайнере
     QAction *aboutUs = ui->AboutUs;
     QAction *openDataMatrixDirectory = ui->Open;
     QAction *exit = ui->Exit;
@@ -27,9 +28,11 @@ MainWindow::MainWindow(QWidget *parent)
     file1->addAction(openDataMatrixDirectory);
     file1->addAction(exit);
     file2->addAction(aboutUs);
+    //соединяем действия с со слотами с реализацией
     connect(aboutUs, &QAction::triggered, this, &MainWindow::AboutUsShow);
     connect(openDataMatrixDirectory, &QAction::triggered, this, &MainWindow::OpenDataMatrixDirectory);
     connect(exit, &QAction::triggered, qApp, &QApplication::quit);
+    //считываем путь в котором указана директория с файлами DataMatrix
     QSettings settings("settings.ini", QSettings::IniFormat);
     path = settings.value("path").toString();
 
@@ -58,6 +61,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//отображаем изображение с камеры
 void MainWindow::Paint(cv::Mat src)
 {
     QImage *CamImg = new QImage(src.data, src.cols, src.rows, src.step,QImage::Format_Grayscale8);
@@ -67,12 +71,13 @@ void MainWindow::Paint(cv::Mat src)
     delete CamImg;
 }
 
-
+//стартуем камеру
 void MainWindow::on_StartCamera_clicked()
 {
     thread_cam->start();
 }
 
+//загружаем в массив DataMatrixы из файла
 void MainWindow::LoadFileDataMatrix(QString nameDataMatrix)
 {
     int i = 0;
@@ -94,7 +99,7 @@ void MainWindow::LoadFileDataMatrix(QString nameDataMatrix)
                                               QString::fromUtf8("Ошибка"),
                                               QString::fromUtf8("<font size='14'>Файл с DataMatrix не найден. Возможно файла не существует или укажите другую директорию</font>"));    }
 }
-
+//тут выскакивает MessageBox с инфой о программе
 void MainWindow::AboutUsShow()
 {
     QMessageBox::StandardButton ErrorOpenFile;
@@ -103,6 +108,7 @@ void MainWindow::AboutUsShow()
                                           QString::fromUtf8("<font size='14'>Моя программа для работы с БД, принтером и камерой</font>"));
 }
 
+//функция, где мы выбираем директорию с файлами DataMatrix
 void MainWindow::OpenDataMatrixDirectory()
 {
     path = QFileDialog::getExistingDirectory(this, QString::fromUtf8("Открыть директорию"),QDir::currentPath(), QFileDialog::ShowDirsOnly);
@@ -110,11 +116,13 @@ void MainWindow::OpenDataMatrixDirectory()
     settings.setValue("path", path);
 }
 
+//функция, где идет подсчет свободных DataMatrix для конкретного продукта
 void MainWindow::on_typeProduct_activated(const QString &arg1)
 {
     if(path != "")
     {
        LoadFileDataMatrix(arg1);
+       //***сделано по тупому, нужно было сделать через "комплексный" запрос
        QString code;
        int countCode;
        query.prepare("SELECT code FROM dbo.nomenclature WHERE nomenclature = '" + ui->typeProduct->currentText() + QString("'") );
@@ -129,7 +137,9 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
        {
            countCode += query.value(0).toInt();
        }
-       ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(5000 - countCode));
+       countFreeDataMatrix = 5000 - countCode;
+       ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
+       //***
 
     }
     else
