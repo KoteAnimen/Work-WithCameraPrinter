@@ -12,6 +12,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QSettings>
+#include <QAbstractSocket>
+#include <QNetworkProxy>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,9 +35,12 @@ public:
     QString arrayDataMatrixes[5000];
     QString fromFileInfo = "";
     QString path;
+    QString code = "";
+    int countFreeDataMatrix = 0;
 
 
     void LoadFileDataMatrix(QString);
+    void Print(QString);
 
 
 signals:
@@ -50,6 +55,8 @@ private slots:
     void on_StartCamera_clicked();
 
     void on_typeProduct_activated(const QString &arg1);
+
+    void on_Print_clicked();
 
 private:
     Ui::MainWindow *ui;

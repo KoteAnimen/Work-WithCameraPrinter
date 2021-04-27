@@ -71,6 +71,42 @@ void MainWindow::Paint(cv::Mat src)
     delete CamImg;
 }
 
+//функция печати
+void MainWindow::Print(QString str)
+{
+    QByteArray array = str.toUtf8();
+    QAbstractSocket *socket;
+    socket = new QAbstractSocket(QAbstractSocket::TcpSocket, this);
+    socket->setProxy(QNetworkProxy::NoProxy);
+    socket->setSocketOption(QAbstractSocket::SendBufferSizeSocketOption, 1024);
+    socket->connectToHost("192.168.0.35", 9100, QAbstractSocket::ReadWrite);
+    if (socket->waitForConnected(1000))
+    {
+    if (socket->write(array) != -1)
+    {
+    while (socket->bytesToWrite() > 0)
+    {
+    socket->flush();
+    }
+    }
+    else
+    {
+    QMessageBox::StandardButton ErrorOpenFile;
+    ErrorOpenFile = QMessageBox::critical(this,
+    QString::fromUtf8("Ошибка"),
+    QString::fromUtf8("<font size='16'>Ошибка печати!</font>"));
+    }
+    }
+    else
+    {
+    QMessageBox::StandardButton ErrorOpenFile;
+    ErrorOpenFile = QMessageBox::critical(this,
+    QString::fromUtf8("Ошибка"),
+    QString::fromUtf8("<font size='16'>Ошибка доступа к принтеру! Проверьте питания принтера!</font>"));
+    }
+    socket->disconnectFromHost();
+}
+
 //стартуем камеру
 void MainWindow::on_StartCamera_clicked()
 {
@@ -123,7 +159,6 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
     {
        LoadFileDataMatrix(arg1);
        //***сделано по тупому, нужно было сделать через "комплексный" запрос
-       QString code;
        int countCode;
        query.prepare("SELECT code FROM dbo.nomenclature WHERE nomenclature = '" + ui->typeProduct->currentText() + QString("'") );
        query.exec();
@@ -135,7 +170,7 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
        query.exec();
        while(query.next())
        {
-           countCode += query.value(0).toInt();
+           countCode = query.value(0).toInt();
        }
        countFreeDataMatrix = 5000 - countCode;
        ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
@@ -148,5 +183,35 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
         ErrorOpenFile = QMessageBox::warning(this,
                                               QString::fromUtf8("Не указана директория"),
                                               QString::fromUtf8("<font size='14'>Укажите директорию c DataMatrix</font>"));
+    }
+}
+
+//событие печати DataMatrix(нужно доделать)
+void MainWindow::on_Print_clicked()
+{
+    int countStickers = ui->countStickers->value();
+    int i = 0;
+    if(countFreeDataMatrix > 0 && countFreeDataMatrix - countStickers > 0){
+
+        while(i < countStickers)
+        {
+            Print("^XA"
+              "^FO 360,40"  //смещение текста от левого верхнего края
+              "^FB400,2,10,C,0" //ширина, количество строк, пробелы между строками, выравнивание текста, отступ для второй или последующей строки
+              "^ASN,10,10" //шрифт S и размер букв 10 на 10 точек
+              "^BXN,5,200,,,,_"
+              "^FD_1" + QString(arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)]) + "^FS"//сам текст
+              "^XZ");
+            i++;
+        }
+    }
+
+    else
+    {
+        QMessageBox::StandardButton ErrorOpenFile;
+        ErrorOpenFile = QMessageBox::critical(this,
+                                              QString::fromUtf8("Ошибка"),
+                                              QString::fromUtf8("<font size='14'>Не хватает DataMatrix для печати</font>"));
+
     }
 }
