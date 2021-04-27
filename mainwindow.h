@@ -30,6 +30,7 @@ public:
     QThread *thread_cam;
     bool startCamera = false;
     QString arrayDataMatrixes[5000];
+    QString fromFileInfo = "";
     QString path;
 
     void LoadFileDataMatrix(QString);
@@ -44,9 +45,7 @@ public slots:
     void OpenDataMatrixDirectory();
 
 private slots:
-    void on_StartCamera_clicked();
-
-    void on_typeProduct_currentTextChanged(const QString &arg1);
+    void on_StartCamera_clicked();    
 
 private:
     Ui::MainWindow *ui;

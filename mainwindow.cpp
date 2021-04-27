@@ -74,6 +74,23 @@ void MainWindow::on_StartCamera_clicked()
 void MainWindow::LoadFileDataMatrix(QString nameDataMatrix)
 {
     int i = 0;
+    QFile file(path + QString("/") + nameDataMatrix + QString(".csv"));
+    if(file.open(QFile::ReadOnly))
+    {
+        QTextStream in(&file);
+        while(!in.atEnd())
+        {
+            fromFileInfo = in.readLine();
+            arrayDataMatrixes[i] = fromFileInfo;
+            i++;
+        }
+    }
+    else
+    {
+        QMessageBox::StandardButton ErrorOpenFile;
+        ErrorOpenFile = QMessageBox::critical(this,
+                                              QString::fromUtf8("Ошибка"),
+                                              QString::fromUtf8("<font size='14'>Файл с DataMatrix не найден. Укажите директорию</font>"));    }
 }
 
 void MainWindow::AboutUsShow()
@@ -87,10 +104,7 @@ void MainWindow::AboutUsShow()
 void MainWindow::OpenDataMatrixDirectory()
 {
     path = QFileDialog::getExistingDirectory(this, QString::fromUtf8("Открыть директорию"),QDir::currentPath(), QFileDialog::ShowDirsOnly);
+    qDebug() << path;
 }
 
-void MainWindow::on_typeProduct_currentTextChanged(const QString &arg1)
-{
 
-
-}
