@@ -8,6 +8,9 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +29,10 @@ public:
     QSqlQuery query;
     QThread *thread_cam;
     bool startCamera = false;
+    QString arrayDataMatrixes[5000];
+    QString path;
+
+    void LoadFileDataMatrix(QString);
 
 
 signals:
@@ -33,9 +40,13 @@ signals:
 
 public slots:
     void Paint(cv::Mat);
+    void AboutUsShow();
+    void OpenDataMatrixDirectory();
 
 private slots:
     void on_StartCamera_clicked();
+
+    void on_typeProduct_currentTextChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

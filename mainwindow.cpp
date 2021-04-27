@@ -10,11 +10,26 @@ MainWindow::MainWindow(QWidget *parent)
     int metatype_id = qRegisterMetaType<cv::Mat>("cv::Mat");
     camera = new CameraConnection();
     thread_cam = new QThread();
-    camera->moveToThread(thread_cam);
+    camera->moveToThread(thread_cam);    
     connect(camera, &CameraConnection::FrameReady, this, &MainWindow::Paint);
     connect(this, &MainWindow::getFrame, camera, &CameraConnection::Grab);
     connect(thread_cam, &QThread::started, camera, &CameraConnection::Grab);
 
+    QAction *aboutUs = ui->AboutUs;
+    QAction *openDataMatrixDirectory = ui->Open;
+    QAction *exit = ui->Exit;
+    // Создаем объект класса QMenu (меню)
+    QMenu *file1;
+    QMenu *file2;
+    file1 = ui->menu;
+    file2 = ui->menu_2;
+    // Помещаем действие "Quit" (Выход) в меню с помощью метода addAction()
+    file1->addAction(openDataMatrixDirectory);
+    file1->addAction(exit);
+    file2->addAction(aboutUs);
+    connect(aboutUs, &QAction::triggered, this, &MainWindow::AboutUsShow);
+    connect(openDataMatrixDirectory, &QAction::triggered, this, &MainWindow::OpenDataMatrixDirectory);
+    connect(exit, &QAction::triggered, qApp, &QApplication::quit);
 
     //подключаемся к БД
     db.setDatabaseName("Driver={SQL Server};Server=DESKTOP-CR5MEE4\\SQLEXPRESS;Trusted_Connection=Yes;Database=Dairy;");
@@ -54,4 +69,28 @@ void MainWindow::Paint(cv::Mat src)
 void MainWindow::on_StartCamera_clicked()
 {
     thread_cam->start();
+}
+
+void MainWindow::LoadFileDataMatrix(QString nameDataMatrix)
+{
+    int i = 0;
+}
+
+void MainWindow::AboutUsShow()
+{
+    QMessageBox::StandardButton ErrorOpenFile;
+    ErrorOpenFile = QMessageBox::information(this,
+                                          QString::fromUtf8("О программе"),
+                                          QString::fromUtf8("<font size='14'>Моя программа для работы с БД, принтером и камерой</font>"));
+}
+
+void MainWindow::OpenDataMatrixDirectory()
+{
+    path = QFileDialog::getExistingDirectory(this, QString::fromUtf8("Открыть директорию"),QDir::currentPath(), QFileDialog::ShowDirsOnly);
+}
+
+void MainWindow::on_typeProduct_currentTextChanged(const QString &arg1)
+{
+
+
 }
