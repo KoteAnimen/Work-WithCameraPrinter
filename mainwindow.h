@@ -14,6 +14,7 @@
 #include <QSettings>
 #include <QAbstractSocket>
 #include <QNetworkProxy>
+#include <QDateTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

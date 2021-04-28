@@ -81,9 +81,10 @@ void MainWindow::Print(QString str)
     socket->setSocketOption(QAbstractSocket::SendBufferSizeSocketOption, 1024);
     socket->connectToHost("192.168.0.35", 9100, QAbstractSocket::ReadWrite);
     if (socket->waitForConnected(1000))
-    {
+    {        
     if (socket->write(array) != -1)
     {
+
     while (socket->bytesToWrite() > 0)
     {
     socket->flush();
@@ -94,7 +95,7 @@ void MainWindow::Print(QString str)
     QMessageBox::StandardButton ErrorOpenFile;
     ErrorOpenFile = QMessageBox::critical(this,
     QString::fromUtf8("Ошибка"),
-    QString::fromUtf8("<font size='16'>Ошибка печати!</font>"));
+    QString::fromUtf8("<font size='14'>Ошибка печати!</font>"));
     }
     }
     else
@@ -102,7 +103,7 @@ void MainWindow::Print(QString str)
     QMessageBox::StandardButton ErrorOpenFile;
     ErrorOpenFile = QMessageBox::critical(this,
     QString::fromUtf8("Ошибка"),
-    QString::fromUtf8("<font size='16'>Ошибка доступа к принтеру! Проверьте питания принтера!</font>"));
+    QString::fromUtf8("<font size='14'>Ошибка доступа к принтеру! Проверьте питания принтера!</font>"));
     }
     socket->disconnectFromHost();
 }
@@ -196,12 +197,19 @@ void MainWindow::on_Print_clicked()
         while(i < countStickers)
         {
             Print("^XA"
-              "^FO 360,40"  //смещение текста от левого верхнего края
+              "^FO 360,50"  //смещение текста от левого верхнего края
               "^FB400,2,10,C,0" //ширина, количество строк, пробелы между строками, выравнивание текста, отступ для второй или последующей строки
               "^ASN,10,10" //шрифт S и размер букв 10 на 10 точек
               "^BXN,5,200,,,,_"
               "^FD_1" + QString(arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)]) + "^FS"//сам текст
               "^XZ");
+            query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp) VALUES(?, ?, ?)");
+            query.addBindValue(code);
+            query.addBindValue(QDateTime::currentDateTime());
+            query.addBindValue(ui->date->dateTime());
+            query.exec();
+            countFreeDataMatrix--;
+            ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
             i++;
         }
     }
