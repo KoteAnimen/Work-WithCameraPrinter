@@ -9,7 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    cameraconnection.cpp \
+    cameraconnect.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -76,7 +76,7 @@ LIBS += -LC:\Qt\opencv\lib\Release\
             -lopencv_xphoto430
 
 HEADERS += \
-    cameraconnection.h \
+    cameraconnect.h \
     mainwindow.h
 
 FORMS += \

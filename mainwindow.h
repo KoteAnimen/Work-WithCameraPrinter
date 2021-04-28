@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <cameraconnection.h>
+#include <cameraconnect.h>
 #include <QThread>
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -28,7 +29,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    CameraConnection *camera;
+    CameraConnect *camera;
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     QSqlQuery query;
     QThread *thread_cam;

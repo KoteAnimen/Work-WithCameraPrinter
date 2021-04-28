@@ -6,14 +6,14 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
-    int metatype_id = qRegisterMetaType<cv::Mat>("cv::Mat");
-    camera = new CameraConnection();
+    ui->setupUi(this);    
+    camera = new CameraConnect();
+    qRegisterMetaType<cv::Mat>("cv::Mat");
     thread_cam = new QThread();
     camera->moveToThread(thread_cam);    
-    connect(camera, &CameraConnection::FrameReady, this, &MainWindow::Paint);
-    connect(this, &MainWindow::getFrame, camera, &CameraConnection::Grab);
-    connect(thread_cam, &QThread::started, camera, &CameraConnection::Grab);
+    connect(camera, &CameraConnect::FrameReady, this, &MainWindow::Paint);
+    connect(this, &MainWindow::getFrame, camera, &CameraConnect::GrabImage);
+    connect(thread_cam, &QThread::started, camera, &CameraConnect::GrabImage);
 
     //связываем действия с уже созданными в дизайнере
     QAction *aboutUs = ui->AboutUs;
@@ -111,6 +111,10 @@ void MainWindow::Print(QString str)
 //стартуем камеру
 void MainWindow::on_StartCamera_clicked()
 {
+    camera->initSome();
+    camera->setSerial("22310683");
+    camera->OpenCamera();
+    camera->setFeatureTriggerModeType(true);
     thread_cam->start();
 }
 
