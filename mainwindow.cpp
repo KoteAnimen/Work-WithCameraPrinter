@@ -8,12 +8,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);    
     camera = new CameraConnect();
+    work = new BarCodeProcessing();
+    work->setFolderName("cam1");
     qRegisterMetaType<cv::Mat>("cv::Mat");
     thread_cam = new QThread();
+    thread_work = new QThread();
     camera->moveToThread(thread_cam);    
     connect(camera, &CameraConnect::FrameReady, this, &MainWindow::Paint);
     connect(this, &MainWindow::getFrame, camera, &CameraConnect::GrabImage);
     connect(thread_cam, &QThread::started, camera, &CameraConnect::GrabImage);
+
+    connect(camera, &CameraConnect::FrameReady, work, &BarCodeProcessing::ProcessFrame);
+    connect(work, &BarCodeProcessing::ThreshMat, this, &MainWindow::Paint);
+    connect(work,&BarCodeProcessing::CodeQr, this, &MainWindow::GrabRes);
+    work->moveToThread(thread_work);
 
     //связываем действия с уже созданными в дизайнере
     QAction *aboutUs = ui->AboutUs;
@@ -53,6 +61,9 @@ MainWindow::MainWindow(QWidget *parent)
     {
         ui->typeProduct->addItem(query.value("nomenclature").toString().trimmed());
     }
+    timer = new QTimer();
+    timer->setInterval(5000);
+    connect(timer, &QTimer::timeout, this, &MainWindow::updateTimer);
 
 }
 
@@ -69,6 +80,41 @@ void MainWindow::Paint(cv::Mat src)
     ui->cameraScreen->update();
     emit getFrame();
     delete CamImg;
+}
+
+//тут нужно дописать условие
+void MainWindow::GrabRes(QString str)
+{
+    int countStickers = ui->countStickers->value();
+    int i = 0;
+
+    while(i < countStickers)
+    {
+        if(str.mid(str.indexOf(">")+1,str.size())==arrayDataMatrixes[i + (countFreeDataMatrix - 5000)*(-1)])
+        {
+            timer->stop();
+            Print(first + arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)] + end);
+            query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp) VALUES(?, ?, ?)");
+            query.addBindValue(code);
+            query.addBindValue(QDateTime::currentDateTime());
+            query.addBindValue(ui->date->dateTime());
+            query.exec();
+            countFreeDataMatrix--;
+            ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
+            i++;
+            timer->start();
+        }
+
+    }
+
+}
+
+void MainWindow::updateTimer()
+{
+    QMessageBox::StandardButton ErrorOpenFile;
+        ErrorOpenFile = QMessageBox::critical(this,
+                                         QString::fromUtf8("Ошибка"),
+                                         QString::fromUtf8("<font size='14'>Код не распечатался!</font>"));
 }
 
 //функция печати
@@ -195,12 +241,11 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
 void MainWindow::on_Print_clicked()
 {
     int countStickers = ui->countStickers->value();
-    int i = 0;
-    if(countFreeDataMatrix > 0 && countFreeDataMatrix - countStickers > 0){
-
-        while(i < countStickers)
+    if(ui->cameraScreen->text() != "Нет изображения")
+    {
+        if(countFreeDataMatrix > 0 && countFreeDataMatrix - countStickers > 0)
         {
-            Print(first + arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)] + end);
+            Print(first + arrayDataMatrixes[(countFreeDataMatrix - 5000)*(-1)] + end);
             query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp) VALUES(?, ?, ?)");
             query.addBindValue(code);
             query.addBindValue(QDateTime::currentDateTime());
@@ -208,16 +253,26 @@ void MainWindow::on_Print_clicked()
             query.exec();
             countFreeDataMatrix--;
             ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
-            i++;
+            thread_work->start();
+            timer->start();
+        }
+
+        else
+        {
+            QMessageBox::StandardButton ErrorOpenFile;
+            ErrorOpenFile = QMessageBox::critical(this,
+                                                  QString::fromUtf8("Ошибка"),
+                                                  QString::fromUtf8("<font size='14'>Не хватает DataMatrix для печати</font>"));
+
         }
     }
-
     else
     {
         QMessageBox::StandardButton ErrorOpenFile;
         ErrorOpenFile = QMessageBox::critical(this,
                                               QString::fromUtf8("Ошибка"),
-                                              QString::fromUtf8("<font size='14'>Не хватает DataMatrix для печати</font>"));
-
+                                              QString::fromUtf8("<font size='14'>Запустите камеру</font>"));
     }
+
+
 }

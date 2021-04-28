@@ -16,6 +16,7 @@
 #include <QAbstractSocket>
 #include <QNetworkProxy>
 #include <QDateTime>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,14 +31,17 @@ public:
     ~MainWindow();
 
     CameraConnect *camera;
+    BarCodeProcessing *work;
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     QSqlQuery query;
     QThread *thread_cam;
+    QThread *thread_work;
     bool startCamera = false;
     QString arrayDataMatrixes[5000];
     QString fromFileInfo = "";
     QString path;
     QString code = "";
+    QTimer *timer;
     const QString first = "^XA" "^FO 360,50" "^FB400,2,10,C,0" "^ASN,10,10" "^BXN,5,200,,,,_" "^FD_1", end = "^FS" "^XZ";
     int countFreeDataMatrix = 0;
 
@@ -52,6 +56,8 @@ public slots:
     void Paint(cv::Mat);
     void AboutUsShow();
     void OpenDataMatrixDirectory();
+    void GrabRes(QString);
+    void updateTimer();
 
 private slots:
     void on_StartCamera_clicked();
