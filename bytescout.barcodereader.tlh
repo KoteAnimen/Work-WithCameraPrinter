@@ -1,0 +1,1798 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.16.27039.0 (72ec1d62).
+//
+// c:\users\максим\documents\bytescout samples\barcode reader sdk\c++ (unmanaged)\read barcode from memory\debug\bytescout.barcodereader.tlh
+//
+// C++ source equivalent of Win32 type library c:\\Program Files\\Bytescout BarCode Reader SDK1\\net4.00\\Bytescout.BarCodeReader.tlb
+// compiler-generated file created 05/13/20 at 19:58:27 - DO NOT EDIT!
+
+//
+// Cross-referenced type libraries:
+//
+//  #import "C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb"
+//
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace Bytescout_BarCodeReader {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("55bb52dd-22ff-4f31-a21f-8843cd306fcc"))
+/* LIBID */ __Bytescout_BarCodeReader;
+struct /* coclass */ BarcodeException;
+struct /* coclass */ InvalidPasswordException;
+struct /* coclass */ BarcodeFoundEventArgs;
+struct /* coclass */ BarcodeTypeSelector;
+struct /* coclass */ DecoderSpecificOptions;
+struct __declspec(uuid("a065e627-885a-3ed3-b6ba-8ad2f2e9aee6"))
+/* dual interface */ IBarcodeTypeSelector;
+enum ColorConversionMode;
+struct /* coclass */ ImagePreprocessingFiltersCollection;
+struct /* coclass */ BarcodeReaderProfileException;
+struct __declspec(uuid("1ec6cdd8-9988-3bcb-9e85-40be730b808e"))
+/* dual interface */ IWIAImageScanner;
+enum NoiseRemovalFilterType;
+struct /* coclass */ LastDecodingTime;
+struct /* coclass */ LicenseInfo;
+struct __declspec(uuid("1df96d75-983f-3d8c-8a07-2a96c5c2a92d"))
+/* dual interface */ IReader;
+struct /* coclass */ FoundBarcode;
+enum OrientationType;
+enum PDFReadingMode;
+struct /* coclass */ Reader;
+enum ScanAreaType;
+enum SymbologyType;
+struct /* coclass */ SymbologyUtils;
+enum WiaDeviceType;
+enum WiaImageIntent;
+enum WiaImageBias;
+enum WiaImageFormatType;
+struct /* coclass */ WIAException;
+struct /* coclass */ WIAExceptionWIA2IsNotAvailable;
+struct /* coclass */ WIAExceptionWIA1IsNotAvailable;
+struct /* coclass */ WIAImageScanner;
+struct /* coclass */ TimingData;
+struct /* coclass */ PasswordEventHandler;
+struct /* coclass */ InspectDecodedBarcodesEventHandler;
+struct __declspec(uuid("7df781ab-bc94-376e-b45f-75a8c9dd7b04"))
+/* dual interface */ _BarcodeException;
+struct __declspec(uuid("9969e1b2-db01-3d6f-bf79-86ccec1277e0"))
+/* dual interface */ _InvalidPasswordException;
+struct __declspec(uuid("fb4659bb-d859-3f76-b79a-ebba71f9a27a"))
+/* dual interface */ _BarcodeFoundEventArgs;
+struct __declspec(uuid("12247a7d-47e7-31cf-adc5-0593c0539eef"))
+/* dual interface */ _BarcodeTypeSelector;
+struct __declspec(uuid("cb55dd33-70ed-374f-827a-e66a7db8e079"))
+/* dual interface */ _DecoderSpecificOptions;
+struct __declspec(uuid("15ea13e1-91e5-31f9-a545-3ebd2e0268f1"))
+/* dual interface */ _ImagePreprocessingFiltersCollection;
+struct __declspec(uuid("a547076d-92d1-3597-928e-75ecb1729eee"))
+/* dual interface */ _BarcodeReaderProfileException;
+struct __declspec(uuid("dd407773-ab42-3acf-a25e-570a9eae7b39"))
+/* dual interface */ _LastDecodingTime;
+struct __declspec(uuid("abbf0a7e-3e5b-3ed9-b242-818715fa7194"))
+/* dual interface */ _LicenseInfo;
+struct __declspec(uuid("3e4dedd0-2aae-3ebf-a054-edb1c7ffa83a"))
+/* dual interface */ _FoundBarcode;
+struct __declspec(uuid("75cd31ea-58c0-3382-8c12-09047bc10f47"))
+/* dual interface */ _Reader;
+struct __declspec(uuid("891a6208-411c-38a1-b14b-8dd248b660e3"))
+/* dual interface */ _SymbologyUtils;
+struct __declspec(uuid("348f240c-f257-3af5-ac08-80d77976c5e3"))
+/* dual interface */ _WIAException;
+struct __declspec(uuid("5dcd408e-93e9-3d94-9702-3d3ba0abd370"))
+/* dual interface */ _WIAExceptionWIA2IsNotAvailable;
+struct __declspec(uuid("4ea185e1-0213-33a7-9ced-d7ea781b3c26"))
+/* dual interface */ _WIAExceptionWIA1IsNotAvailable;
+struct __declspec(uuid("2b82e8be-cb56-3220-957b-44028aad2741"))
+/* dual interface */ _WIAImageScanner;
+struct __declspec(uuid("87f2ca00-2752-366e-a9f7-e5539ce20b84"))
+/* dual interface */ _TimingData;
+struct __declspec(uuid("3ff6c150-d78f-33c7-9bde-d4ac5d9e117e"))
+/* dual interface */ _PasswordEventHandler;
+struct __declspec(uuid("f3fb84d5-00a0-3b72-97ff-6e861a5d9d01"))
+/* dual interface */ _InspectDecodedBarcodesEventHandler;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IBarcodeTypeSelector, __uuidof(IBarcodeTypeSelector));
+_COM_SMARTPTR_TYPEDEF(IWIAImageScanner, __uuidof(IWIAImageScanner));
+_COM_SMARTPTR_TYPEDEF(_BarcodeException, __uuidof(_BarcodeException));
+_COM_SMARTPTR_TYPEDEF(_InvalidPasswordException, __uuidof(_InvalidPasswordException));
+_COM_SMARTPTR_TYPEDEF(_BarcodeFoundEventArgs, __uuidof(_BarcodeFoundEventArgs));
+_COM_SMARTPTR_TYPEDEF(_BarcodeTypeSelector, __uuidof(_BarcodeTypeSelector));
+_COM_SMARTPTR_TYPEDEF(_DecoderSpecificOptions, __uuidof(_DecoderSpecificOptions));
+_COM_SMARTPTR_TYPEDEF(_ImagePreprocessingFiltersCollection, __uuidof(_ImagePreprocessingFiltersCollection));
+_COM_SMARTPTR_TYPEDEF(_BarcodeReaderProfileException, __uuidof(_BarcodeReaderProfileException));
+_COM_SMARTPTR_TYPEDEF(_LastDecodingTime, __uuidof(_LastDecodingTime));
+_COM_SMARTPTR_TYPEDEF(_LicenseInfo, __uuidof(_LicenseInfo));
+_COM_SMARTPTR_TYPEDEF(IReader, __uuidof(IReader));
+_COM_SMARTPTR_TYPEDEF(_FoundBarcode, __uuidof(_FoundBarcode));
+_COM_SMARTPTR_TYPEDEF(_SymbologyUtils, __uuidof(_SymbologyUtils));
+_COM_SMARTPTR_TYPEDEF(_WIAException, __uuidof(_WIAException));
+_COM_SMARTPTR_TYPEDEF(_WIAExceptionWIA2IsNotAvailable, __uuidof(_WIAExceptionWIA2IsNotAvailable));
+_COM_SMARTPTR_TYPEDEF(_WIAExceptionWIA1IsNotAvailable, __uuidof(_WIAExceptionWIA1IsNotAvailable));
+_COM_SMARTPTR_TYPEDEF(_WIAImageScanner, __uuidof(_WIAImageScanner));
+_COM_SMARTPTR_TYPEDEF(_TimingData, __uuidof(_TimingData));
+_COM_SMARTPTR_TYPEDEF(_PasswordEventHandler, __uuidof(_PasswordEventHandler));
+_COM_SMARTPTR_TYPEDEF(_InspectDecodedBarcodesEventHandler, __uuidof(_InspectDecodedBarcodesEventHandler));
+_COM_SMARTPTR_TYPEDEF(_Reader, __uuidof(_Reader));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("ea5d9739-ba26-3b94-bf2e-b86b959ec1ba"))
+BarcodeException;
+    // [ default ] interface _BarcodeException
+    // interface _Object
+    // interface ISerializable
+    // interface _Exception
+
+struct __declspec(uuid("2bd1a739-ca72-3ab5-aee5-82810c5de3a6"))
+InvalidPasswordException;
+    // [ default ] interface _InvalidPasswordException
+    // interface _Object
+    // interface ISerializable
+    // interface _Exception
+
+struct __declspec(uuid("7516aec2-755b-3a01-a09a-3b63f585653f"))
+BarcodeFoundEventArgs;
+    // [ default ] interface _BarcodeFoundEventArgs
+    // interface _Object
+
+struct __declspec(uuid("2c893327-8ad3-3b1c-bea5-e94b8669aad4"))
+BarcodeTypeSelector;
+    // [ default ] interface _BarcodeTypeSelector
+    // interface _Object
+    // interface IBarcodeTypeSelector
+
+struct __declspec(uuid("68f1a558-2317-368c-8f4c-e5a280603757"))
+DecoderSpecificOptions;
+    // [ default ] interface _DecoderSpecificOptions
+    // interface _Object
+
+struct __declspec(uuid("a065e627-885a-3ed3-b6ba-8ad2f2e9aee6"))
+IBarcodeTypeSelector : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_EAN8 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN8 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN8 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN8 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EAN13 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN13 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN13 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN13 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UPCE (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UPCE (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UPCA (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UPCA (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN12 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN12 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Interleaved2of5 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Interleaved2of5 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CircularI2of5 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CircularI2of5 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ITF14 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ITF14 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN14 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN14 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39Extended (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39Extended (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39Mod43 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39Mod43 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39Mod43Extended (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39Mod43Extended (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PZN (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PZN (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UPU (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UPU (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Pharmacode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Pharmacode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code128 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code128 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EAN2 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN2 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EAN5 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN5 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Codabar (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Codabar (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Trioptic (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Trioptic (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PatchCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PatchCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarOmnidirectional (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarOmnidirectional (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarExpanded (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarExpanded (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarLimited (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarLimited (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarStacked (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarStacked (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarExpandedStacked (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarExpandedStacked (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDF417 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDF417 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DataMatrix (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DataMatrix (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DPMDataMatrix (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DPMDataMatrix (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_QRCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_QRCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Aztec (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Aztec (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MaxiCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MaxiCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MICR (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MICR (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_IntelligentMail (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_IntelligentMail (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RoyalMail (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RoyalMail (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RoyalMailKIX (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RoyalMailKIX (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AustralianPostCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AustralianPostCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CodablockF (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CodablockF (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code16K (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code16K (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PostNet (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PostNet (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MicroPDF (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MicroPDF (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code93 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code93 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MSI (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MSI (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_All1D (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_All1D (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_All2D (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_All2D (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_All (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_All (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall SetAll1D ( ) = 0;
+      virtual HRESULT __stdcall SetAll2D ( ) = 0;
+      virtual HRESULT __stdcall SetAll ( ) = 0;
+      virtual HRESULT __stdcall Reset ( ) = 0;
+      virtual HRESULT __stdcall IsAny1DSelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall IsAny2DSelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall IsAnySelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Segment (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Segment (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Circle (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Circle (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Oval (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Oval (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Checkbox (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Checkbox (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Rectangle (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Rectangle (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_HorizontalLine (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_HorizontalLine (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_VerticalLine (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_VerticalLine (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UnderlinedField (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UnderlinedField (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_BorderedTable (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_BorderedTable (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AllOMRElements (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AllOMRElements (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall SetAllOMRElements ( ) = 0;
+      virtual HRESULT __stdcall IsAnyOMRElementsSelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+};
+
+enum __declspec(uuid("0a081e8b-7144-3f24-bff5-51b957212f65"))
+ColorConversionMode
+{
+    ColorConversionMode_ImageBlocks = 0,
+    ColorConversionMode_Image = 1,
+    ColorConversionMode_Enhancing = 2,
+    ColorConversionMode_NoiseFilter = 3,
+    ColorConversionMode_Smoothed = 4,
+    ColorConversionMode_GridFiltering = 5,
+    ColorConversionMode_Threshold = 6,
+    ColorConversionMode_Legacy = 7
+};
+
+struct __declspec(uuid("6b644822-e961-3e14-a04d-771091b0c535"))
+ImagePreprocessingFiltersCollection;
+    // [ default ] interface _ImagePreprocessingFiltersCollection
+    // interface _Object
+
+struct __declspec(uuid("fdb9c6c7-b1f6-3282-8f91-77c8e82a2d81"))
+BarcodeReaderProfileException;
+    // [ default ] interface _BarcodeReaderProfileException
+    // interface _Object
+    // interface ISerializable
+    // interface _Exception
+
+enum __declspec(uuid("345a3ff6-73f8-370e-9506-f1b78e09dff0"))
+NoiseRemovalFilterType
+{
+    NoiseRemovalFilterType_Blur = 0,
+    NoiseRemovalFilterType_Median = 1
+};
+
+struct __declspec(uuid("92bd307d-6eed-3487-b2f2-cfb0bdfd98a2"))
+LastDecodingTime;
+    // [ default ] interface _LastDecodingTime
+    // interface _Object
+
+struct __declspec(uuid("1df0df8e-15a3-39ed-b359-668aba5b52ee"))
+LicenseInfo;
+    // [ default ] interface _LicenseInfo
+    // interface _Object
+
+struct __declspec(uuid("bdb4e455-55ff-33cf-af99-a8a0ba0f2b06"))
+FoundBarcode;
+    // [ default ] interface _FoundBarcode
+    // interface _Object
+
+enum __declspec(uuid("b487e760-fc14-395a-9213-12ea536792eb"))
+OrientationType
+{
+    OrientationType_HorizontalFromLeftToRight = 1,
+    OrientationType_HorizontalFromRightToLeft = 16,
+    OrientationType_DiagonalFromTopLeftToBottomRight11 = 32,
+    OrientationType_DiagonalFromBottomRightToTopLeft11 = 64,
+    OrientationType_DiagonalFromBottomLeftToTopRight11 = 128,
+    OrientationType_DiagonalFromTopRightToBottomLeft11 = 256,
+    OrientationType_DiagonalFromTopLeftToBottomRight22 = 512,
+    OrientationType_DiagonalFromBottomRightToTopLeft22 = 1024,
+    OrientationType_DiagonalFromBottomLeftToTopRight22 = 2048,
+    OrientationType_DiagonalFromTopRightToBottomLeft22 = 4096,
+    OrientationType_DiagonalFromTopLeftToBottomRight45 = 4,
+    OrientationType_DiagonalFromBottomRightToTopLeft45 = 8192,
+    OrientationType_DiagonalFromBottomLeftToTopRight45 = 8,
+    OrientationType_DiagonalFromTopRightToBottomLeft45 = 16384,
+    OrientationType_VerticalFromTopToBottom = 2,
+    OrientationType_VerticalFromBottomToTop = 32768,
+    OrientationType_Default = 17,
+    OrientationType_HorizontalAndVertical = 32787,
+    OrientationType_SearchAll = 65535
+};
+
+enum __declspec(uuid("e032514f-fe19-3fa9-bf73-0e1437961bc1"))
+PDFReadingMode
+{
+    PDFReadingMode_RenderPDF = 0,
+    PDFReadingMode_ExtractEmbeddedImagesOnly = 1
+};
+
+struct __declspec(uuid("f25895b1-fda5-31ce-a92d-6b721334de31"))
+Reader;
+    // [ default ] interface _Reader
+    // interface _Object
+    // interface IReader
+    // interface IDisposable
+
+enum __declspec(uuid("3ea55ef4-f681-3d70-921c-8b26c2723dce"))
+ScanAreaType
+{
+    ScanAreaType_Custom = 0,
+    ScanAreaType_TopLeftQuarter = 1,
+    ScanAreaType_TopRightQuarter = 2,
+    ScanAreaType_BottomRightQuarter = 4,
+    ScanAreaType_BottomLeftQuarter = 8,
+    ScanAreaType_TopHalf = 3,
+    ScanAreaType_BottomHalf = 12,
+    ScanAreaType_WholePage = 15
+};
+
+enum __declspec(uuid("2ecfa03f-aeda-3fcd-9763-f81cdcb71a39"))
+SymbologyType
+{
+    SymbologyType_Unknown = 0,
+    SymbologyType_Codabar = 1,
+    SymbologyType_Code128 = 2,
+    SymbologyType_GS1 = 3,
+    SymbologyType_Code39 = 4,
+    SymbologyType_I2of5 = 5,
+    SymbologyType_EAN13 = 6,
+    SymbologyType_EAN8 = 7,
+    SymbologyType_UPCA = 8,
+    SymbologyType_UPCE = 9,
+    SymbologyType_EAN2 = 10,
+    SymbologyType_EAN5 = 11,
+    SymbologyType_PDF417 = 12,
+    SymbologyType_DataMatrix = 13,
+    SymbologyType_QRCode = 14,
+    SymbologyType_Aztec = 15,
+    SymbologyType_TriopticCode39 = 16,
+    SymbologyType_PatchCode = 17,
+    SymbologyType_GS1DataBarOmnidirectional = 18,
+    SymbologyType_GS1DataBarExpanded = 19,
+    SymbologyType_GS1DataBarLimited = 20,
+    SymbologyType_GS1DataBarStacked = 21,
+    SymbologyType_GS1DataBarExpandedStacked = 22,
+    SymbologyType_MaxiCode = 23,
+    SymbologyType_MICR = 24,
+    SymbologyType_IntelligentMail = 25,
+    SymbologyType_RoyalMail = 26,
+    SymbologyType_RoyalMailKIX = 27,
+    SymbologyType_AustralianPostCode = 28,
+    SymbologyType_CodablockF = 29,
+    SymbologyType_Code16K = 30,
+    SymbologyType_PostNet = 31,
+    SymbologyType_MicroPDF = 32,
+    SymbologyType_Code93 = 33,
+    SymbologyType_MSI = 34,
+    SymbologyType_ITF14 = 35,
+    SymbologyType_GTIN14 = 36,
+    SymbologyType_GTIN13 = 37,
+    SymbologyType_GTIN8 = 38,
+    SymbologyType_GTIN12 = 39,
+    SymbologyType_CircularI2of5 = 40,
+    SymbologyType_PZN = 41,
+    SymbologyType_Pharmacode = 42,
+    SymbologyType_Code39Ext = 43,
+    SymbologyType_Code39Mod43 = 44,
+    SymbologyType_Code39Mod43Ext = 45,
+    SymbologyType_UPU = 46,
+    SymbologyType_Segment = 47,
+    SymbologyType_Circle = 48,
+    SymbologyType_Oval = 49,
+    SymbologyType_Checkbox = 50,
+    SymbologyType_HorizontalLine = 51,
+    SymbologyType_VerticalLine = 52,
+    SymbologyType_UnderlinedField = 53,
+    SymbologyType_Table = 54,
+    SymbologyType_DPMDataMatrix = 55
+};
+
+struct __declspec(uuid("8421d429-c2ff-3985-bd3f-ebd902edc8e7"))
+SymbologyUtils;
+    // [ default ] interface _SymbologyUtils
+    // interface _Object
+
+enum __declspec(uuid("6ec7fc55-2596-3cbd-af6c-88ab39f5c66d"))
+WiaDeviceType
+{
+    WiaDeviceType_UnspecifiedDeviceType = 0,
+    WiaDeviceType_ScannerDeviceType = 1,
+    WiaDeviceType_CameraDeviceType = 2,
+    WiaDeviceType_VideoDeviceType = 3
+};
+
+enum __declspec(uuid("de2fca8f-1720-3bab-ad75-a8b3735d193b"))
+WiaImageIntent
+{
+    WiaImageIntent_UnspecifiedIntent = 0,
+    WiaImageIntent_ColorIntent = 1,
+    WiaImageIntent_GrayscaleIntent = 2,
+    WiaImageIntent_TextIntent = 4
+};
+
+enum __declspec(uuid("378d4de0-b5e7-3275-a985-ad0fe8fea9f6"))
+WiaImageBias
+{
+    WiaImageBias_MinimizeSize = 65536,
+    WiaImageBias_MaximizeQuality = 131072
+};
+
+enum __declspec(uuid("a0b9ae4c-cbef-3207-98a2-bdf011883051"))
+WiaImageFormatType
+{
+    WiaImageFormatType_BMP = 0,
+    WiaImageFormatType_PNG = 1,
+    WiaImageFormatType_GIF = 2,
+    WiaImageFormatType_JPEG = 3,
+    WiaImageFormatType_TIFF = 4
+};
+
+struct __declspec(uuid("1ec6cdd8-9988-3bcb-9e85-40be730b808e"))
+IWIAImageScanner : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_OutputFiles (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputFolder (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OutputFolder (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputFileNameTemplate (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OutputFileNameTemplate (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImageIntent (
+        /*[out,retval]*/ enum WiaImageIntent * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ImageIntent (
+        /*[in]*/ enum WiaImageIntent pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OutputImageFormat (
+        /*[in]*/ enum WiaImageFormatType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputImageFormat (
+        /*[out,retval]*/ enum WiaImageFormatType * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DeviceType (
+        /*[out,retval]*/ enum WiaDeviceType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DeviceType (
+        /*[in]*/ enum WiaDeviceType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ShowDeviceSelectionDialog (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ShowDeviceSelectionDialog (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImageQuality (
+        /*[out,retval]*/ enum WiaImageBias * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ImageQuality (
+        /*[in]*/ enum WiaImageBias pRetVal ) = 0;
+      virtual HRESULT __stdcall Acquire (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("bfe5566f-fb23-3fc9-a8ae-ddbfb77af128"))
+WIAException;
+    // [ default ] interface _WIAException
+    // interface _Object
+    // interface ISerializable
+    // interface _Exception
+
+struct __declspec(uuid("0f4c5e23-5014-330a-a6e9-ce336e8fa538"))
+WIAExceptionWIA2IsNotAvailable;
+    // [ default ] interface _WIAExceptionWIA2IsNotAvailable
+    // interface _Object
+    // interface ISerializable
+    // interface _Exception
+
+struct __declspec(uuid("606ffeb5-1366-359b-a681-3af604713372"))
+WIAExceptionWIA1IsNotAvailable;
+    // [ default ] interface _WIAExceptionWIA1IsNotAvailable
+    // interface _Object
+    // interface ISerializable
+    // interface _Exception
+
+struct __declspec(uuid("0d6cc9eb-4056-36e7-baf0-f342360246e4"))
+WIAImageScanner;
+    // [ default ] interface _WIAImageScanner
+    // interface _Object
+    // interface IWIAImageScanner
+
+struct __declspec(uuid("4ee883a3-af95-3b56-bfcd-dcfc23e8b07a"))
+TimingData;
+    // [ default ] interface _TimingData
+    // interface _Object
+
+struct __declspec(uuid("4385d287-6c6a-3c81-8b33-d2288e8978c8"))
+PasswordEventHandler;
+    // [ default ] interface _PasswordEventHandler
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("4b57458b-7407-31c7-bebd-f78a18bc02d9"))
+InspectDecodedBarcodesEventHandler;
+    // [ default ] interface _InspectDecodedBarcodesEventHandler
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("7df781ab-bc94-376e-b45f-75a8c9dd7b04"))
+_BarcodeException : IDispatch
+{};
+
+struct __declspec(uuid("9969e1b2-db01-3d6f-bf79-86ccec1277e0"))
+_InvalidPasswordException : IDispatch
+{};
+
+struct __declspec(uuid("fb4659bb-d859-3f76-b79a-ebba71f9a27a"))
+_BarcodeFoundEventArgs : IDispatch
+{};
+
+struct __declspec(uuid("12247a7d-47e7-31cf-adc5-0593c0539eef"))
+_BarcodeTypeSelector : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_ToString (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall Equals (
+        /*[in]*/ VARIANT obj,
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetHashCode (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetType (
+        /*[out,retval]*/ struct _Type * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EAN8 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN8 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN8 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN8 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EAN13 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN13 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN13 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN13 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UPCE (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UPCE (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UPCA (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UPCA (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN12 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN12 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Interleaved2of5 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Interleaved2of5 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CircularI2of5 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CircularI2of5 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ITF14 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ITF14 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GTIN14 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GTIN14 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39Extended (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39Extended (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39Mod43 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39Mod43 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code39Mod43Extended (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code39Mod43Extended (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PZN (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PZN (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UPU (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UPU (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Pharmacode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Pharmacode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code128 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code128 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EAN2 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN2 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_EAN5 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_EAN5 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Codabar (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Codabar (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Trioptic (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Trioptic (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PatchCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PatchCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarOmnidirectional (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarOmnidirectional (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarExpanded (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarExpanded (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarLimited (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarLimited (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarStacked (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarStacked (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_GS1DataBarExpandedStacked (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_GS1DataBarExpandedStacked (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDF417 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDF417 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DataMatrix (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DataMatrix (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DPMDataMatrix (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DPMDataMatrix (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_QRCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_QRCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Aztec (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Aztec (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MaxiCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MaxiCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MICR (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MICR (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_IntelligentMail (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_IntelligentMail (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RoyalMail (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RoyalMail (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RoyalMailKIX (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RoyalMailKIX (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AustralianPostCode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AustralianPostCode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CodablockF (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CodablockF (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code16K (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code16K (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PostNet (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PostNet (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MicroPDF (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MicroPDF (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code93 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code93 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MSI (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MSI (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_All1D (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_All1D (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_All2D (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_All2D (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_All (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_All (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall SetAll1D ( ) = 0;
+      virtual HRESULT __stdcall SetAll2D ( ) = 0;
+      virtual HRESULT __stdcall SetAll ( ) = 0;
+      virtual HRESULT __stdcall Reset ( ) = 0;
+      virtual HRESULT __stdcall IsAny1DSelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall IsAny2DSelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall IsAnySelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Segment (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Segment (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Circle (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Circle (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Oval (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Oval (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Checkbox (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Checkbox (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Rectangle (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Rectangle (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_HorizontalLine (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_HorizontalLine (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_VerticalLine (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_VerticalLine (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_UnderlinedField (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_UnderlinedField (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_BorderedTable (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_BorderedTable (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AllOMRElements (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AllOMRElements (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall SetAllOMRElements ( ) = 0;
+      virtual HRESULT __stdcall IsAnyOMRElementsSelected (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("cb55dd33-70ed-374f-827a-e66a7db8e079"))
+_DecoderSpecificOptions : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_ToString (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall Equals (
+        /*[in]*/ VARIANT obj,
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetHashCode (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetType (
+        /*[out,retval]*/ struct _Type * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DataMatrix_MaxHoleSizeInsideLines (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DataMatrix_MaxHoleSizeInsideLines (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DataMatrix_MaxAllowedHoleBetweenLinesInLPattern (
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DataMatrix_MaxAllowedHoleBetweenLinesInLPattern (
+        /*[in]*/ double pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DataMatrix_LPatternDispersion (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DataMatrix_LPatternDispersion (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Code128_AllowOneSymbolBarcodes (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Code128_AllowOneSymbolBarcodes (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+};
+
+struct __declspec(uuid("15ea13e1-91e5-31f9-a545-3ebd2e0268f1"))
+_ImagePreprocessingFiltersCollection : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_ToString (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall Equals (
+        /*[in]*/ VARIANT obj,
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetHashCode (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetType (
+        /*[out,retval]*/ struct _Type * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Count (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall AddMedian ( ) = 0;
+      virtual HRESULT __stdcall AddBlur ( ) = 0;
+      virtual HRESULT __stdcall AddContrast (
+        /*[in]*/ long contrast ) = 0;
+      virtual HRESULT __stdcall AddScale ( ) = 0;
+      virtual HRESULT __stdcall AddScale_2 (
+        /*[in]*/ double scaleFactor ) = 0;
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall AddScale_4 (
+        /*[in]*/ long autoSizeLimit ) = 0;
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall AddCropDark ( ) = 0;
+      virtual HRESULT __stdcall AddCropLight ( ) = 0;
+      virtual HRESULT __stdcall AddGamma ( ) = 0;
+      virtual HRESULT __stdcall AddGamma_2 (
+        /*[in]*/ double gamma ) = 0;
+      virtual HRESULT __stdcall AddNegate ( ) = 0;
+      virtual HRESULT __stdcall Clear ( ) = 0;
+};
+
+struct __declspec(uuid("a547076d-92d1-3597-928e-75ecb1729eee"))
+_BarcodeReaderProfileException : IDispatch
+{};
+
+struct __declspec(uuid("dd407773-ab42-3acf-a25e-570a9eae7b39"))
+_LastDecodingTime : IDispatch
+{};
+
+struct __declspec(uuid("abbf0a7e-3e5b-3ed9-b242-818715fa7194"))
+_LicenseInfo : IDispatch
+{};
+
+struct __declspec(uuid("1df96d75-983f-3d8c-8a07-2a96c5c2a92d"))
+IReader : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_RegistrationName (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RegistrationName (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RegistrationKey (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RegistrationKey (
+        /*[in]*/ BSTR pRetVal ) = 0;
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_CustomAreaLeft (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaLeft (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CustomAreaTop (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaTop (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CustomAreaWidth (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaWidth (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CustomAreaHeight (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaHeight (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScanArea (
+        /*[out,retval]*/ enum ScanAreaType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ScanArea (
+        /*[in]*/ enum ScanAreaType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_BarcodeTypesToFind (
+        /*[out,retval]*/ struct _BarcodeTypeSelector * * pRetVal ) = 0;
+      virtual HRESULT __stdcall putref_BarcodeTypesToFind (
+        /*[in]*/ struct _BarcodeTypeSelector * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Orientation (
+        /*[out,retval]*/ enum OrientationType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Orientation (
+        /*[in]*/ enum OrientationType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_SearchNegative (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_SearchNegative (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RequireQuietZones (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RequireQuietZones (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MaxNumberOfBarcodesPerPage (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MaxNumberOfBarcodesPerPage (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MaxNumberOfBarcodesPerDocument (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MaxNumberOfBarcodesPerDocument (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OptimizedProcessingOfLargeImages (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OptimizedProcessingOfLargeImages (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OptimizedProcessingOfLargeImagesSizeLimit (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OptimizedProcessingOfLargeImagesSizeLimit (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MinimalDataLength (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MinimalDataLength (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MediumTrustLevelCompatible (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MediumTrustLevelCompatible (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScanStep (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ScanStep (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AllowOrphanedSupplementals (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AllowOrphanedSupplementals (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Version (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LicenseInfo (
+        /*[out,retval]*/ struct _LicenseInfo * * pRetVal ) = 0;
+    virtual HRESULT _VtblGapPlaceholder3( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall GetImagePageCount (
+        /*[in]*/ BSTR fileName,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+    virtual HRESULT _VtblGapPlaceholder4( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_FoundCount (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Profiles (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Profiles (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_FastMode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_FastMode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImagePreprocessingFilters (
+        /*[out,retval]*/ struct _ImagePreprocessingFiltersCollection * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeType (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ enum SymbologyType * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeValue (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodePage (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeLeft (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeTop (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeWidth (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeHeight (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeConfidence (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ float * pRetVal ) = 0;
+    virtual HRESULT _VtblGapPlaceholder5( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder6( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder7( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder8( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall ReadFromFile (
+        /*[in]*/ BSTR fileName ) = 0;
+    virtual HRESULT _VtblGapPlaceholder9( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder10( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall ReadFromFilePage (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ long page ) = 0;
+      virtual HRESULT __stdcall ReadFromHBitmap (
+        /*[in]*/ long hbmp ) = 0;
+      virtual HRESULT __stdcall ReadFromHBitmap_2 (
+        /*[in]*/ long hbmp,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+      virtual HRESULT __stdcall ReadFromStream (
+        /*[in]*/ IUnknown * stream ) = 0;
+      virtual HRESULT __stdcall ReadFromStream_2 (
+        /*[in]*/ IUnknown * stream,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+    virtual HRESULT _VtblGapPlaceholder11( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder12( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall ReadFromMemory (
+        /*[in]*/ SAFEARRAY * bytes ) = 0;
+      virtual HRESULT __stdcall ReadFromMemory_2 (
+        /*[in]*/ SAFEARRAY * bytes,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+      virtual HRESULT __stdcall ReadFromMemoryCOM (
+        /*[in]*/ SAFEARRAY * byteArray ) = 0;
+      virtual HRESULT __stdcall ReadFromMemoryCOM_2 (
+        /*[in]*/ SAFEARRAY * byteArray,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+      virtual HRESULT __stdcall get_PDFReadingMode (
+        /*[out,retval]*/ enum PDFReadingMode * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFReadingMode (
+        /*[in]*/ enum PDFReadingMode pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFRenderingResolution (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFRenderingResolution (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFRenderText (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFRenderText (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFOptimizeSplittedParts (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFOptimizeSplittedParts (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFFontSmoothing (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFFontSmoothing (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall GetPdfPageCount (
+        /*[in]*/ BSTR pdfFile,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+    virtual HRESULT _VtblGapPlaceholder13( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall ReadFromPdfFile (
+        /*[in]*/ BSTR fileName,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+    virtual HRESULT _VtblGapPlaceholder14( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall ReadFromPdfFilePage (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ long startPage,
+        /*[in]*/ long pageCount,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+    virtual HRESULT _VtblGapPlaceholder15( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_RemoveNoize (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RemoveNoize (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_NoiseRemovalFilterSize (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_NoiseRemovalFilterSize (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_NoiseRemovalFilterType (
+        /*[out,retval]*/ enum NoiseRemovalFilterType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_NoiseRemovalFilterType (
+        /*[in]*/ enum NoiseRemovalFilterType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ColorConversionMode (
+        /*[out,retval]*/ enum ColorConversionMode * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ColorConversionMode (
+        /*[in]*/ enum ColorConversionMode pRetVal ) = 0;
+      virtual HRESULT __stdcall get_HeuristicMode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_HeuristicMode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_contrast (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_contrast (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DecodingTimeOut (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DecodingTimeOut (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LastDecodingTimeOutExceeded (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LastDecodingTime (
+        /*[out,retval]*/ struct _LastDecodingTime * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TextEncoding (
+        /*[out,retval]*/ struct _Encoding * * pRetVal ) = 0;
+      virtual HRESULT __stdcall putref_TextEncoding (
+        /*[in]*/ struct _Encoding * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TextEncodingCodePage (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_TextEncodingCodePage (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TextEncodingUseUTF8 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_TextEncodingUseUTF8 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall SplitDocument (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR destinationDocument1,
+        /*[in]*/ BSTR destinationDocument2,
+        /*[in]*/ long splitAtPageNumber ) = 0;
+      virtual HRESULT __stdcall SplitDocument_2 (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR ranges,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall SplitDocumentCOM (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR ranges,
+        /*[out,retval]*/ VARIANT * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExtractPageFromDocument (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR destinationDocument,
+        /*[in]*/ long pageNumber ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToXML (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToXML_2 (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToJSON (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToJSON_2 (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToXMLDocument (
+        /*[out,retval]*/ IUnknown * * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_2 (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ BSTR delimiterSymbol,
+        /*[in]*/ BSTR quotationSymbol ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_3 (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ BSTR delimiterSymbol,
+        /*[in]*/ BSTR quotationSymbol,
+        /*[in]*/ struct _Encoding * encoding ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_4 (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_5 (
+        /*[in]*/ BSTR delimiterSymbol,
+        /*[in]*/ BSTR quotationSymbol,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToTXT (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ VARIANT_BOOL onlyValues,
+        /*[in]*/ struct _Encoding * encoding ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToTXT_2 (
+        /*[in]*/ VARIANT_BOOL onlyValues,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall LoadProfiles (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall LoadProfilesFromString (
+        /*[in]*/ BSTR jsonString ) = 0;
+      virtual HRESULT __stdcall LoadAndApplyProfiles (
+        /*[in]*/ BSTR jsonString ) = 0;
+      virtual HRESULT __stdcall CreateProfile (
+        /*[in]*/ BSTR profileName,
+        /*[in]*/ BSTR outputFileName ) = 0;
+      virtual HRESULT __stdcall CreateProfile_2 (
+        /*[in]*/ BSTR profileName,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DecoderSpecificOptions (
+        /*[out,retval]*/ struct _DecoderSpecificOptions * * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("3e4dedd0-2aae-3ebf-a054-edb1c7ffa83a"))
+_FoundBarcode : IDispatch
+{};
+
+struct __declspec(uuid("891a6208-411c-38a1-b14b-8dd248b660e3"))
+_SymbologyUtils : IDispatch
+{};
+
+struct __declspec(uuid("348f240c-f257-3af5-ac08-80d77976c5e3"))
+_WIAException : IDispatch
+{};
+
+struct __declspec(uuid("5dcd408e-93e9-3d94-9702-3d3ba0abd370"))
+_WIAExceptionWIA2IsNotAvailable : IDispatch
+{};
+
+struct __declspec(uuid("4ea185e1-0213-33a7-9ced-d7ea781b3c26"))
+_WIAExceptionWIA1IsNotAvailable : IDispatch
+{};
+
+struct __declspec(uuid("2b82e8be-cb56-3220-957b-44028aad2741"))
+_WIAImageScanner : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_ToString (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall Equals (
+        /*[in]*/ VARIANT obj,
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetHashCode (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetType (
+        /*[out,retval]*/ struct _Type * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputFiles (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputFolder (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OutputFolder (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputFileNameTemplate (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OutputFileNameTemplate (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImageIntent (
+        /*[out,retval]*/ enum WiaImageIntent * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ImageIntent (
+        /*[in]*/ enum WiaImageIntent pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OutputImageFormat (
+        /*[in]*/ enum WiaImageFormatType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputImageFormat (
+        /*[out,retval]*/ enum WiaImageFormatType * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DeviceType (
+        /*[out,retval]*/ enum WiaDeviceType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DeviceType (
+        /*[in]*/ enum WiaDeviceType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ShowDeviceSelectionDialog (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ShowDeviceSelectionDialog (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImageQuality (
+        /*[out,retval]*/ enum WiaImageBias * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ImageQuality (
+        /*[in]*/ enum WiaImageBias pRetVal ) = 0;
+      virtual HRESULT __stdcall Acquire (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OutputFilesCOM (
+        /*[out,retval]*/ VARIANT * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("87f2ca00-2752-366e-a9f7-e5539ce20b84"))
+_TimingData : IDispatch
+{};
+
+struct __declspec(uuid("3ff6c150-d78f-33c7-9bde-d4ac5d9e117e"))
+_PasswordEventHandler : IDispatch
+{};
+
+struct __declspec(uuid("f3fb84d5-00a0-3b72-97ff-6e861a5d9d01"))
+_InspectDecodedBarcodesEventHandler : IDispatch
+{};
+
+struct __declspec(uuid("75cd31ea-58c0-3382-8c12-09047bc10f47"))
+_Reader : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_ToString (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall Equals (
+        /*[in]*/ VARIANT obj,
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetHashCode (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetType (
+        /*[out,retval]*/ struct _Type * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RegistrationName (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RegistrationName (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RegistrationKey (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RegistrationKey (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CustomAreaLeft (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaLeft (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CustomAreaTop (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaTop (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CustomAreaWidth (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaWidth (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_CustomAreaHeight (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_CustomAreaHeight (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScanArea (
+        /*[out,retval]*/ enum ScanAreaType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ScanArea (
+        /*[in]*/ enum ScanAreaType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_BarcodeTypesToFind (
+        /*[out,retval]*/ struct _BarcodeTypeSelector * * pRetVal ) = 0;
+      virtual HRESULT __stdcall putref_BarcodeTypesToFind (
+        /*[in]*/ struct _BarcodeTypeSelector * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Orientation (
+        /*[out,retval]*/ enum OrientationType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Orientation (
+        /*[in]*/ enum OrientationType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_SearchNegative (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_SearchNegative (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RequireQuietZones (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RequireQuietZones (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MaxNumberOfBarcodesPerPage (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MaxNumberOfBarcodesPerPage (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MaxNumberOfBarcodesPerDocument (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MaxNumberOfBarcodesPerDocument (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OptimizedProcessingOfLargeImages (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OptimizedProcessingOfLargeImages (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_OptimizedProcessingOfLargeImagesSizeLimit (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_OptimizedProcessingOfLargeImagesSizeLimit (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MinimalDataLength (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MinimalDataLength (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_MediumTrustLevelCompatible (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_MediumTrustLevelCompatible (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ScanStep (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ScanStep (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_AllowOrphanedSupplementals (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_AllowOrphanedSupplementals (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Version (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LicenseInfo (
+        /*[out,retval]*/ struct _LicenseInfo * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetImagePageCount (
+        /*[in]*/ BSTR fileName,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_FoundBarcodes (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_FoundCount (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_Profiles (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_Profiles (
+        /*[in]*/ BSTR pRetVal ) = 0;
+      virtual HRESULT __stdcall get_FastMode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_FastMode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ImagePreprocessingFilters (
+        /*[out,retval]*/ struct _ImagePreprocessingFiltersCollection * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeType (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ enum SymbologyType * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeValue (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodePage (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeLeft (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeTop (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeWidth (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeHeight (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetFoundBarcodeConfidence (
+        /*[in]*/ long barcodeIndex,
+        /*[out,retval]*/ float * pRetVal ) = 0;
+      virtual HRESULT __stdcall ReadFromFile (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall ReadFromFilePage (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ long page ) = 0;
+      virtual HRESULT __stdcall ReadFromHBitmap (
+        /*[in]*/ long hbmp ) = 0;
+      virtual HRESULT __stdcall ReadFromHBitmap_2 (
+        /*[in]*/ long hbmp,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+      virtual HRESULT __stdcall ReadFromStream (
+        /*[in]*/ IUnknown * stream ) = 0;
+      virtual HRESULT __stdcall ReadFromStream_2 (
+        /*[in]*/ IUnknown * stream,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+      virtual HRESULT __stdcall ReadFromMemory (
+        /*[in]*/ SAFEARRAY * bytes ) = 0;
+      virtual HRESULT __stdcall ReadFromMemory_2 (
+        /*[in]*/ SAFEARRAY * bytes,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+      virtual HRESULT __stdcall ReadFromMemoryCOM (
+        /*[in]*/ SAFEARRAY * byteArray ) = 0;
+      virtual HRESULT __stdcall ReadFromMemoryCOM_2 (
+        /*[in]*/ SAFEARRAY * byteArray,
+        /*[in]*/ long pageIndex,
+        /*[in]*/ long pageCount ) = 0;
+      virtual HRESULT __stdcall get_PDFReadingMode (
+        /*[out,retval]*/ enum PDFReadingMode * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFReadingMode (
+        /*[in]*/ enum PDFReadingMode pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFRenderingResolution (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFRenderingResolution (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFRenderText (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFRenderText (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFOptimizeSplittedParts (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFOptimizeSplittedParts (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_PDFFontSmoothing (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_PDFFontSmoothing (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall GetPdfPageCount (
+        /*[in]*/ BSTR pdfFile,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall ReadFromPdfFile (
+        /*[in]*/ BSTR fileName,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall ReadFromPdfFilePage (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ long startPage,
+        /*[in]*/ long pageCount,
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_RemoveNoize (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_RemoveNoize (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_NoiseRemovalFilterSize (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_NoiseRemovalFilterSize (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_NoiseRemovalFilterType (
+        /*[out,retval]*/ enum NoiseRemovalFilterType * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_NoiseRemovalFilterType (
+        /*[in]*/ enum NoiseRemovalFilterType pRetVal ) = 0;
+      virtual HRESULT __stdcall get_ColorConversionMode (
+        /*[out,retval]*/ enum ColorConversionMode * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_ColorConversionMode (
+        /*[in]*/ enum ColorConversionMode pRetVal ) = 0;
+      virtual HRESULT __stdcall get_HeuristicMode (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_HeuristicMode (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall get_contrast (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_contrast (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DecodingTimeOut (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_DecodingTimeOut (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LastDecodingTimeOutExceeded (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_LastDecodingTime (
+        /*[out,retval]*/ struct _LastDecodingTime * * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TextEncoding (
+        /*[out,retval]*/ struct _Encoding * * pRetVal ) = 0;
+      virtual HRESULT __stdcall putref_TextEncoding (
+        /*[in]*/ struct _Encoding * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TextEncodingCodePage (
+        /*[out,retval]*/ long * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_TextEncodingCodePage (
+        /*[in]*/ long pRetVal ) = 0;
+      virtual HRESULT __stdcall get_TextEncodingUseUTF8 (
+        /*[out,retval]*/ VARIANT_BOOL * pRetVal ) = 0;
+      virtual HRESULT __stdcall put_TextEncodingUseUTF8 (
+        /*[in]*/ VARIANT_BOOL pRetVal ) = 0;
+      virtual HRESULT __stdcall SplitDocument (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR destinationDocument1,
+        /*[in]*/ BSTR destinationDocument2,
+        /*[in]*/ long splitAtPageNumber ) = 0;
+      virtual HRESULT __stdcall SplitDocument_2 (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR ranges,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall SplitDocumentCOM (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR ranges,
+        /*[out,retval]*/ VARIANT * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExtractPageFromDocument (
+        /*[in]*/ BSTR sourceDocument,
+        /*[in]*/ BSTR destinationDocument,
+        /*[in]*/ long pageNumber ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToXML (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToXML_2 (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToJSON (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToJSON_2 (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToXMLDocument (
+        /*[out,retval]*/ IUnknown * * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_2 (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ BSTR delimiterSymbol,
+        /*[in]*/ BSTR quotationSymbol ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_3 (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ BSTR delimiterSymbol,
+        /*[in]*/ BSTR quotationSymbol,
+        /*[in]*/ struct _Encoding * encoding ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_4 (
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToCSV_5 (
+        /*[in]*/ BSTR delimiterSymbol,
+        /*[in]*/ BSTR quotationSymbol,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToTXT (
+        /*[in]*/ BSTR fileName,
+        /*[in]*/ VARIANT_BOOL onlyValues,
+        /*[in]*/ struct _Encoding * encoding ) = 0;
+      virtual HRESULT __stdcall ExportFoundBarcodesToTXT_2 (
+        /*[in]*/ VARIANT_BOOL onlyValues,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall LoadProfiles (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall LoadProfilesFromString (
+        /*[in]*/ BSTR jsonString ) = 0;
+      virtual HRESULT __stdcall LoadAndApplyProfiles (
+        /*[in]*/ BSTR jsonString ) = 0;
+      virtual HRESULT __stdcall CreateProfile (
+        /*[in]*/ BSTR profileName,
+        /*[in]*/ BSTR outputFileName ) = 0;
+      virtual HRESULT __stdcall CreateProfile_2 (
+        /*[in]*/ BSTR profileName,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall get_DecoderSpecificOptions (
+        /*[out,retval]*/ struct _DecoderSpecificOptions * * pRetVal ) = 0;
+      virtual HRESULT __stdcall Dispose ( ) = 0;
+      virtual HRESULT __stdcall add_BarcodeFound (
+        /*[in]*/ IUnknown * value ) = 0;
+      virtual HRESULT __stdcall remove_BarcodeFound (
+        /*[in]*/ IUnknown * value ) = 0;
+      virtual HRESULT __stdcall add_PDFDocumentPasswordRequired (
+        /*[in]*/ struct _PasswordEventHandler * value ) = 0;
+      virtual HRESULT __stdcall remove_PDFDocumentPasswordRequired (
+        /*[in]*/ struct _PasswordEventHandler * value ) = 0;
+      virtual HRESULT __stdcall add_InspectDecodedBarcodes (
+        /*[in]*/ struct _InspectDecodedBarcodesEventHandler * value ) = 0;
+      virtual HRESULT __stdcall remove_InspectDecodedBarcodes (
+        /*[in]*/ struct _InspectDecodedBarcodesEventHandler * value ) = 0;
+};
+
+} // namespace Bytescout_BarCodeReader
+
+#pragma pack(pop)

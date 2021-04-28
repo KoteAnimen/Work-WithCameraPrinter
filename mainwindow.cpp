@@ -200,13 +200,7 @@ void MainWindow::on_Print_clicked()
 
         while(i < countStickers)
         {
-            Print("^XA"
-              "^FO 360,50"  //смещение текста от левого верхнего края
-              "^FB400,2,10,C,0" //ширина, количество строк, пробелы между строками, выравнивание текста, отступ для второй или последующей строки
-              "^ASN,10,10" //шрифт S и размер букв 10 на 10 точек
-              "^BXN,5,200,,,,_"
-              "^FD_1" + QString(arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)]) + "^FS"//сам текст
-              "^XZ");
+            Print(first + arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)] + end);
             query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp) VALUES(?, ?, ?)");
             query.addBindValue(code);
             query.addBindValue(QDateTime::currentDateTime());

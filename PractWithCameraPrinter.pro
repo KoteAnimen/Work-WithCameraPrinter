@@ -1,4 +1,4 @@
-QT       += core gui sql network
+QT       += core gui sql axcontainer network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    barcodeprocessing.cpp \
     cameraconnect.cpp \
     main.cpp \
     mainwindow.cpp
@@ -20,6 +21,8 @@ LIBS += "-LC:/Program Files/Basler/pylon 6/Development/lib/x64" \
     -lGenApi_MD_VC141_v3_1_Basler_pylon \
     -lGCBase_MD_VC141_v3_1_Basler_pylon\
     -lPylonBase_v6_2 \
+
+
 
 INCLUDEPATH += "C:/Qt/opencv/include"
 LIBS += -LC:\Qt\opencv\lib\Release\
@@ -76,8 +79,11 @@ LIBS += -LC:\Qt\opencv\lib\Release\
             -lopencv_xphoto430
 
 HEADERS += \
+    barcodeprocessing.h \
     cameraconnect.h \
-    mainwindow.h
+    mainwindow.h \
+    stdafx.h \
+    targetver.h
 
 FORMS += \
     mainwindow.ui
