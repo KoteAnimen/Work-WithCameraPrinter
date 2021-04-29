@@ -6,14 +6,14 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);    
+    ui->setupUi(this);
     camera = new CameraConnect();
     work = new BarCodeProcessing();
     work->setFolderName("cam1");
     qRegisterMetaType<cv::Mat>("cv::Mat");
     thread_cam = new QThread();
     thread_work = new QThread();
-    camera->moveToThread(thread_cam);    
+    camera->moveToThread(thread_cam);
     connect(camera, &CameraConnect::FrameReady, this, &MainWindow::Paint);
     connect(this, &MainWindow::getFrame, camera, &CameraConnect::GrabImage);
     connect(thread_cam, &QThread::started, camera, &CameraConnect::GrabImage);
@@ -88,9 +88,10 @@ void MainWindow::Paint(cv::Mat src)
 void MainWindow::GrabRes(QString str)
 {
     int countStickers = ui->countStickers->value();
-    int i = 0;
+    qDebug() << str;
     if(str.mid(str.indexOf(">")+1,str.size())==arrayDataMatrixes[(i + (countFreeDataMatrix - 5000)*(-1)) - 1])
     {
+        //qDebug() << str + QString(" ... ") + arrayDataMatrixes[(i + (countFreeDataMatrix - 5000)*(-1)) - 1];
         if(i < countStickers)
         {
             timer->stop();
@@ -105,6 +106,16 @@ void MainWindow::GrabRes(QString str)
             ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
             timer->start();
         }
+        else
+        {
+            timer->stop();
+            QMessageBox::StandardButton ErrorOpenFile;
+            ErrorOpenFile = QMessageBox::information(this,
+                                                  QString::fromUtf8("Печать"),
+                                                  QString::fromUtf8("<font size='14'>Печать завершена</font>"));
+            i = 0;
+
+        }
     }
 }
 
@@ -112,9 +123,9 @@ void MainWindow::GrabRes(QString str)
 void MainWindow::updateTimer()
 {
     QMessageBox::StandardButton ErrorOpenFile;
-        ErrorOpenFile = QMessageBox::critical(this,
-                                         QString::fromUtf8("Ошибка"),
-                                         QString::fromUtf8("<font size='14'>Код не распечатался!</font>"));
+    ErrorOpenFile = QMessageBox::critical(this,
+                                          QString::fromUtf8("Ошибка"),
+                                          QString::fromUtf8("<font size='14'>Код не распечатался!</font>"));
 
 }
 
@@ -128,29 +139,29 @@ void MainWindow::Print(QString str)
     socket->setSocketOption(QAbstractSocket::SendBufferSizeSocketOption, 1024);
     socket->connectToHost("192.168.0.35", 9100, QAbstractSocket::ReadWrite);
     if (socket->waitForConnected(1000))
-    {        
-    if (socket->write(array) != -1)
     {
+        if (socket->write(array) != -1)
+        {
 
-    while (socket->bytesToWrite() > 0)
-    {
-    socket->flush();
-    }
+            while (socket->bytesToWrite() > 0)
+            {
+                socket->flush();
+            }
+        }
+        else
+        {
+            QMessageBox::StandardButton ErrorOpenFile;
+            ErrorOpenFile = QMessageBox::critical(this,
+                                                  QString::fromUtf8("Ошибка"),
+                                                  QString::fromUtf8("<font size='14'>Ошибка печати!</font>"));
+        }
     }
     else
     {
-    QMessageBox::StandardButton ErrorOpenFile;
-    ErrorOpenFile = QMessageBox::critical(this,
-    QString::fromUtf8("Ошибка"),
-    QString::fromUtf8("<font size='14'>Ошибка печати!</font>"));
-    }
-    }
-    else
-    {
-    QMessageBox::StandardButton ErrorOpenFile;
-    ErrorOpenFile = QMessageBox::critical(this,
-    QString::fromUtf8("Ошибка"),
-    QString::fromUtf8("<font size='14'>Ошибка доступа к принтеру! Проверьте питания принтера!</font>"));
+        QMessageBox::StandardButton ErrorOpenFile;
+        ErrorOpenFile = QMessageBox::critical(this,
+                                              QString::fromUtf8("Ошибка"),
+                                              QString::fromUtf8("<font size='14'>Ошибка доступа к принтеру! Проверьте питания принтера!</font>"));
     }
     socket->disconnectFromHost();
 }
@@ -192,8 +203,8 @@ void MainWindow::AboutUsShow()
 {
     QMessageBox::StandardButton ErrorOpenFile;
     ErrorOpenFile = QMessageBox::information(this,
-                                          QString::fromUtf8("О программе"),
-                                          QString::fromUtf8("<font size='14'>Моя программа для работы с БД, принтером и камерой</font>"));
+                                             QString::fromUtf8("О программе"),
+                                             QString::fromUtf8("<font size='14'>Моя программа для работы с БД, принтером и камерой</font>"));
 }
 
 //функция, где мы выбираем директорию с файлами DataMatrix
@@ -209,32 +220,32 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
 {
     if(path != "")
     {
-       LoadFileDataMatrix(arg1);
-       //***сделано по тупому, нужно было сделать через "комплексный" запрос
-       int countCode;
-       query.prepare("SELECT code FROM dbo.nomenclature WHERE nomenclature = '" + ui->typeProduct->currentText() + QString("'") );
-       query.exec();
-       while(query.next())
-       {
-           code = query.value(0).toString();
-       }
-       query.prepare("SELECT COUNT(nomenclature_code) FROM dbo.products WHERE nomenclature_code = '" + code +QString("'"));
-       query.exec();
-       while(query.next())
-       {
-           countCode = query.value(0).toInt();
-       }
-       countFreeDataMatrix = 5000 - countCode;
-       ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
-       //***
+        LoadFileDataMatrix(arg1);
+        //***сделано по тупому, нужно было сделать через "комплексный" запрос
+        int countCode;
+        query.prepare("SELECT code FROM dbo.nomenclature WHERE nomenclature = '" + ui->typeProduct->currentText() + QString("'") );
+        query.exec();
+        while(query.next())
+        {
+            code = query.value(0).toString();
+        }
+        query.prepare("SELECT COUNT(nomenclature_code) FROM dbo.products WHERE nomenclature_code = '" + code +QString("'"));
+        query.exec();
+        while(query.next())
+        {
+            countCode = query.value(0).toInt();
+        }
+        countFreeDataMatrix = 5000 - countCode;
+        ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
+        //***
 
     }
     else
     {
         QMessageBox::StandardButton ErrorOpenFile;
         ErrorOpenFile = QMessageBox::warning(this,
-                                              QString::fromUtf8("Не указана директория"),
-                                              QString::fromUtf8("<font size='14'>Укажите директорию c DataMatrix</font>"));
+                                             QString::fromUtf8("Не указана директория"),
+                                             QString::fromUtf8("<font size='14'>Укажите директорию c DataMatrix</font>"));
     }
 }
 
