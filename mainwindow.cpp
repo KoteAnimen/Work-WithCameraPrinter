@@ -87,11 +87,8 @@ void MainWindow::Paint(cv::Mat src)
 //При получении расшифрованного DataMatrix с камеры, производится дальнейшая печать
 void MainWindow::GrabRes(QString str)
 {
-    int countStickers = ui->countStickers->value();
-    qDebug() << str;
     if(str.mid(str.indexOf(">")+1,str.size())==arrayDataMatrixes[(i + (countFreeDataMatrix - 5000)*(-1)) - 1])
     {
-        //qDebug() << str + QString(" ... ") + arrayDataMatrixes[(i + (countFreeDataMatrix - 5000)*(-1)) - 1];
         if(i < countStickers)
         {
             timer->stop();
@@ -113,7 +110,6 @@ void MainWindow::GrabRes(QString str)
             ErrorOpenFile = QMessageBox::information(this,
                                                   QString::fromUtf8("Печать"),
                                                   QString::fromUtf8("<font size='14'>Печать завершена</font>"));
-            i = 0;
 
         }
     }
@@ -252,7 +248,8 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
 //событие печати DataMatrix
 void MainWindow::on_Print_clicked()
 {
-    int countStickers = ui->countStickers->value();
+    countStickers = ui->countStickers->value();
+    i = 0;
     if(ui->cameraScreen->text() != "Нет изображения")
     {
         if(countFreeDataMatrix > 0 && countFreeDataMatrix - countStickers > 0)
@@ -267,6 +264,7 @@ void MainWindow::on_Print_clicked()
             ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
             thread_work->start();
             timer->start();
+            countStickers -= 1;
 
         }
 

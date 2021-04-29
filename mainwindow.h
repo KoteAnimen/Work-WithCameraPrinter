@@ -45,6 +45,7 @@ public:
     const QString first = "^XA" "^FO 360,50" "^FB400,2,10,C,0" "^ASN,10,10" "^BXN,5,200,,,,_" "^FD_1", end = "^FS" "^XZ";
     int countFreeDataMatrix = 0;
     int i = 0;
+    int countStickers = 0;
 
     void LoadFileDataMatrix(QString);
     void Print(QString);
