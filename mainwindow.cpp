@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(thread_cam, &QThread::started, camera, &CameraConnect::GrabImage);
 
     connect(camera, &CameraConnect::FrameReady, work, &BarCodeProcessing::ProcessFrame);
-    connect(work, &BarCodeProcessing::ThreshMat, this, &MainWindow::Paint);
+    //connect(work, &BarCodeProcessing::ThreshMat, this, &MainWindow::Paint);
     connect(work,&BarCodeProcessing::CodeQr, this, &MainWindow::GrabRes);
     work->moveToThread(thread_work);
 
@@ -84,7 +84,7 @@ void MainWindow::Paint(cv::Mat src)
     delete CamImg;
 }
 
-//тут нужно дописать условие
+//При получении расшифрованного DataMatrix с камеры, производится дальнейшая печать
 void MainWindow::GrabRes(QString str)
 {
     int countStickers = ui->countStickers->value();
@@ -108,6 +108,7 @@ void MainWindow::GrabRes(QString str)
     }
 }
 
+//MessageBox с ошибкой, которая высвечивается, если время истекло
 void MainWindow::updateTimer()
 {
     QMessageBox::StandardButton ErrorOpenFile;
@@ -237,7 +238,7 @@ void MainWindow::on_typeProduct_activated(const QString &arg1)
     }
 }
 
-//событие печати DataMatrix(нужно доделать)
+//событие печати DataMatrix
 void MainWindow::on_Print_clicked()
 {
     int countStickers = ui->countStickers->value();
