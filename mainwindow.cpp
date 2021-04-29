@@ -62,8 +62,9 @@ MainWindow::MainWindow(QWidget *parent)
         ui->typeProduct->addItem(query.value("nomenclature").toString().trimmed());
     }
     timer = new QTimer();
-    timer->setInterval(5000);
+    timer->setInterval(10000);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateTimer);
+
 
 }
 
@@ -75,6 +76,7 @@ MainWindow::~MainWindow()
 //отображаем изображение с камеры
 void MainWindow::Paint(cv::Mat src)
 {
+
     QImage *CamImg = new QImage(src.data, src.cols, src.rows, src.step,QImage::Format_Grayscale8);
     ui->cameraScreen->setPixmap(QPixmap::fromImage(*CamImg).scaled(ui->cameraScreen->size()));
     ui->cameraScreen->update();
@@ -87,12 +89,12 @@ void MainWindow::GrabRes(QString str)
 {
     int countStickers = ui->countStickers->value();
     int i = 0;
-
-    while(i < countStickers)
+    if(str.mid(str.indexOf(">")+1,str.size())==arrayDataMatrixes[(i + (countFreeDataMatrix - 5000)*(-1)) - 1])
     {
-        if(str.mid(str.indexOf(">")+1,str.size())==arrayDataMatrixes[i + (countFreeDataMatrix - 5000)*(-1)])
+        if(i < countStickers)
         {
             timer->stop();
+            i++;
             Print(first + arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)] + end);
             query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp) VALUES(?, ?, ?)");
             query.addBindValue(code);
@@ -101,12 +103,9 @@ void MainWindow::GrabRes(QString str)
             query.exec();
             countFreeDataMatrix--;
             ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
-            i++;
             timer->start();
         }
-
     }
-
 }
 
 void MainWindow::updateTimer()
@@ -115,6 +114,7 @@ void MainWindow::updateTimer()
         ErrorOpenFile = QMessageBox::critical(this,
                                          QString::fromUtf8("Ошибка"),
                                          QString::fromUtf8("<font size='14'>Код не распечатался!</font>"));
+
 }
 
 //функция печати
@@ -255,6 +255,7 @@ void MainWindow::on_Print_clicked()
             ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
             thread_work->start();
             timer->start();
+
         }
 
         else
@@ -272,6 +273,7 @@ void MainWindow::on_Print_clicked()
         ErrorOpenFile = QMessageBox::critical(this,
                                               QString::fromUtf8("Ошибка"),
                                               QString::fromUtf8("<font size='14'>Запустите камеру</font>"));
+        return;
     }
 
 
