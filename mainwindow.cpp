@@ -94,10 +94,11 @@ void MainWindow::GrabRes(QString str)
             timer->stop();
             i++;
             Print(first + arrayDataMatrixes[ i + (countFreeDataMatrix - 5000)*(-1)] + end);
-            query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp) VALUES(?, ?, ?)");
+            query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp, batchnum) VALUES(?, ?, ?, ?)");
             query.addBindValue(code);
             query.addBindValue(QDateTime::currentDateTime());
             query.addBindValue(ui->date->dateTime());
+            query.addBindValue(ui->partyNumber->value());
             query.exec();
             countFreeDataMatrix--;
             ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
@@ -255,10 +256,11 @@ void MainWindow::on_Print_clicked()
         if(countFreeDataMatrix > 0 && countFreeDataMatrix - countStickers > 0)
         {
             Print(first + arrayDataMatrixes[(countFreeDataMatrix - 5000)*(-1)] + end);
-            query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp) VALUES(?, ?, ?)");
+            query.prepare("INSERT INTO dbo.products(nomenclature_code, datescan, dateexp, batchnum) VALUES(?, ?, ?, ?)");
             query.addBindValue(code);
             query.addBindValue(QDateTime::currentDateTime());
             query.addBindValue(ui->date->dateTime());
+            query.addBindValue(ui->partyNumber->value());
             query.exec();
             countFreeDataMatrix--;
             ui->freeStickers->setText("Количество оставшихся этикеток: " + QString::number(countFreeDataMatrix));
